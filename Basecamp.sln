@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basecamp", "Basecamp\Basecamp.csproj", "{939A2844-FFF9-4D7C-B4D0-C72FD9BECD54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{C8F20502-DA9D-44C2-88B6-F6BEBBCA3A56}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebsitePublishModule.psm1 = PublishScripts\AzureWebsitePublishModule.psm1
+		PublishScripts\Publish-WebApplicationWebsite.ps1 = PublishScripts\Publish-WebApplicationWebsite.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{800023B7-5299-4441-8129-EA5873DD5925}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\Basecamp-WAWS-dev.json = PublishScripts\Configurations\Basecamp-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{939A2844-FFF9-4D7C-B4D0-C72FD9BECD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{939A2844-FFF9-4D7C-B4D0-C72FD9BECD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{939A2844-FFF9-4D7C-B4D0-C72FD9BECD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{939A2844-FFF9-4D7C-B4D0-C72FD9BECD54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{800023B7-5299-4441-8129-EA5873DD5925} = {C8F20502-DA9D-44C2-88B6-F6BEBBCA3A56}
+	EndGlobalSection
+EndGlobal
