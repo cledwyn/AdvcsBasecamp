@@ -3,42 +3,95 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - AdvcsBasecamp</title>
+
+    <!-- 1. Load webcomponents.js for polyfill support. -->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+    <!-- 2. Use an HTML Import to bring in the element. -->
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-icon-button/core-icon-button.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+
+    <style>
+        :host {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        #core_drawer_panel {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #section {
+            box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+            background-color: rgb(250, 250, 250);
+        }
+
+        #section1 {
+            height: 100%;
+            box-sizing: border-box;
+            background-color: rgb(221, 221, 221);
+        }
+
+        #core_header_panel {
+            width: 100%;
+            height: 100%;
+            left: 0px;
+            top: 0px;
+            position: absolute;
+        }
+
+        #core_toolbar {
+            color: rgb(255, 255, 255);
+            background: linear-gradient(rgb(128, 103, 135) 0%, rgb(105, 82, 111) 100%);
+        }
+
+        #section2 {
+            background: linear-gradient(rgb(214, 227, 231), rgb(173, 216, 230));
+        }
+    </style>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+<body unresolved>
+
+
+
+
+
+    <core-drawer-panel transition id="core_drawer_panel" touch-action>
+        <section id="section" drawer></section>
+        <section id="section1" main>
+            <core-header-panel mode="standard" id="core_header_panel">
+                <core-toolbar id="core_toolbar">
+                    <core-icon-button icon="menu" id="core_icon_button"></core-icon-button>
+                    <div id="div">Advcs Basecamp Navigtor</div>
+                    @Html.Partial("_LoginPartial")
+                </core-toolbar>
+                <section id="section2">
+
+                    @RenderBody()
+
+                </section>
+            </core-header-panel>
+        </section>
+    </core-drawer-panel>
+
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+

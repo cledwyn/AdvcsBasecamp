@@ -1,0 +1,16 @@
+﻿@model Basecamp.Helpers.BCX
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Projects</h2>
+        <ul>
+            @foreach (Newtonsoft.Json.Linq.JObject item in Model.Projects().Children<Newtonsoft.Json.Linq.JObject>())
+            {
+                <li>@Html.ActionLink(item["name"].ToString(),"Todos",new{id=item["id"].ToString()})</li>
+            }
+        </ul>
+    </div>
+</div>
