@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Basecamp.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Configuration;
 
 namespace Basecamp.Controllers
 {
@@ -41,15 +42,14 @@ namespace Basecamp.Controllers
         }
 
         string authBase = "https://advancement.macalester.edu/m/auth/";
-        string appId = "advcs-basecamp-local";
-        string clientId = "cfed9b3b94ef4460a0ddcc94dacfe7d4d9c6e87ca82249dba1b9b42dc0aef002";
-        string clientSecret = "ab12637ec44e4feaa26dbed0cb594be1";
+        string appId = ConfigurationManager.AppSettings["AdvcsMatrixAppId"];
+        string clientId = ConfigurationManager.AppSettings["AdvcsMatrixClientId"];
+        string clientSecret = ConfigurationManager.AppSettings["AdvcsMatrixClientSecret"];
         string defaultLocalPassword = "nevarGonnaUseit";
 
 
         //
         // GET: /Account/Login
-        // https://advancement.macalester.edu/Mdev/auth/default.aspx?code=cfed9b3b94ef4460a0ddcc94dacfe7d4d9c6e87ca82249dba1b9b42dc0aef002&appid=advcs-basecamp-local&return_url=
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
